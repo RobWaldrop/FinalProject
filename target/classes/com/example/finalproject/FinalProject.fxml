@@ -1,0 +1,438 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.Double?>
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Polygon?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.finalproject.FinalProjectController">
+    <stylesheets>
+        <URL value="@../../../../FinalProject.css" />
+    </stylesheets>
+    <children>
+        <BorderPane prefHeight="600.0" prefWidth="800.0">
+            <bottom>
+                <Pane prefHeight="70.0" prefWidth="200.0" style="-fx-background-color: #cccccc #cccccc #cccccc #cccccc;" BorderPane.alignment="CENTER" />
+            </bottom>
+            <top>
+                <Pane prefHeight="70.0" prefWidth="200.0" style="-fx-background-color: #cccccc #cccccc;" BorderPane.alignment="CENTER" />
+            </top>
+            <left>
+                <Pane prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #cccccc #cccccc;" BorderPane.alignment="CENTER">
+                    <children>
+                        <VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0">
+                            <children>
+                                <ToggleButton fx:id="adminToggle" mnemonicParsing="false" onAction="#adminAction" prefHeight="30.0" prefWidth="100.0" text="Admin Menu" />
+                                <VBox fx:id="adminBox" prefHeight="170.0" prefWidth="100.0" spacing="10.0">
+                                    <children>
+                                        <Button fx:id="adminKillPlayer" mnemonicParsing="false" onAction="#adminAction" prefWidth="100.0" text="Kill Player" />
+                                        <CheckBox fx:id="adminRunMon" mnemonicParsing="false" onAction="#adminAction" text="Run Mon" />
+                                        <CheckBox fx:id="adminSleepMon" mnemonicParsing="false" onAction="#adminAction" text="Sleep Mon" />
+                                    </children>
+                                </VBox>
+                            </children>
+                        </VBox>
+                    </children></Pane>
+            </left>
+            <right>
+                <Pane prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #cccccc #cccccc;" BorderPane.alignment="CENTER" />
+            </right>
+            <center>
+                <Pane BorderPane.alignment="CENTER">
+                    <children>
+                        <GridPane alignment="CENTER" layoutX="30.0" layoutY="307.0" prefHeight="60.0" prefWidth="90.0">
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            </rowConstraints>
+                            <children>
+                                <Button fx:id="upButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#moveKeys" prefHeight="30.0" prefWidth="30.0" text="^" GridPane.columnIndex="1">
+                                    <cursor>
+                                        <Cursor fx:constant="HAND" />
+                                    </cursor></Button>
+                                <Button fx:id="leftButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#moveKeys" prefHeight="30.0" prefWidth="30.0" text="&lt;" GridPane.rowIndex="1">
+                                    <cursor>
+                                        <Cursor fx:constant="HAND" />
+                                    </cursor></Button>
+                                <Button fx:id="downButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#moveKeys" prefHeight="30.0" prefWidth="30.0" text="v" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                    <cursor>
+                                        <Cursor fx:constant="HAND" />
+                                    </cursor></Button>
+                                <Button fx:id="rightButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#moveKeys" prefHeight="30.0" prefWidth="30.0" text="&gt;" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                    <cursor>
+                                        <Cursor fx:constant="HAND" />
+                                    </cursor></Button>
+                            </children>
+                        </GridPane>
+                        <HBox layoutX="30.0" layoutY="375.0" prefHeight="30.0" prefWidth="300.0" spacing="20.0" style="-fx-background-color: #cccccc #cccccc #cccccc #cccccc;">
+                            <children>
+                                <Button fx:id="fightButton" mnemonicParsing="false" onAction="#abilityBar" prefHeight="30.0" prefWidth="60.0" text="Fight">
+                                    <font>
+                                        <Font size="11.0" />
+                                    </font>
+                                    <cursor>
+                                        <Cursor fx:constant="HAND" />
+                                    </cursor></Button>
+                                <Button fx:id="runButton" layoutX="30.0" layoutY="10.0" mnemonicParsing="false" onAction="#abilityBar" prefHeight="30.0" prefWidth="60.0" text="Run">
+                                    <font>
+                                        <Font size="11.0" />
+                                    </font>
+                                    <cursor>
+                                        <Cursor fx:constant="HAND" />
+                                    </cursor></Button>
+                                <Button fx:id="searchButton" layoutX="60.0" layoutY="10.0" mnemonicParsing="false" onAction="#abilityBar" prefHeight="30.0" prefWidth="60.0" text="Search">
+                                    <font>
+                                        <Font size="11.0" />
+                                    </font>
+                                    <cursor>
+                                        <Cursor fx:constant="HAND" />
+                                    </cursor></Button>
+                                <Button fx:id="sleepButton" layoutX="90.0" mnemonicParsing="false" onAction="#abilityBar" prefHeight="30.0" prefWidth="60.0" text="Sleep">
+                                    <font>
+                                        <Font size="11.0" />
+                                    </font>
+                                    <cursor>
+                                        <Cursor fx:constant="HAND" />
+                                    </cursor></Button>
+                            </children>
+                        </HBox>
+                        <StackPane layoutX="370.0" layoutY="175.0" prefHeight="150.0" prefWidth="200.0">
+                            <children>
+                                <Rectangle fx:id="combatBackground" fill="#a80000" height="200.0" stroke="TRANSPARENT" strokeType="INSIDE" strokeWidth="0.0" visible="false" width="200.0">
+                                    <effect>
+                                        <InnerShadow height="255.0" radius="127.0" width="255.0" />
+                                    </effect></Rectangle>
+                                <Rectangle fx:id="travelBackground" disable="true" fill="#217c00" height="200.0" stroke="TRANSPARENT" strokeType="INSIDE" strokeWidth="0.0" width="200.0" />
+                                <BorderPane maxHeight="200.0" maxWidth="200.0" prefHeight="200.0" prefWidth="200.0">
+                                    <left>
+                                        <Rectangle fx:id="leftWall" height="140.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" BorderPane.alignment="CENTER" />
+                                    </left>
+                                    <top>
+                                        <Rectangle fx:id="topWall" height="30.0" stroke="TRANSPARENT" strokeType="INSIDE" width="200.0" BorderPane.alignment="CENTER" />
+                                    </top>
+                                    <right>
+                                        <Rectangle fx:id="rightWall" height="140.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" BorderPane.alignment="CENTER" />
+                                    </right>
+                                    <bottom>
+                                        <Rectangle fx:id="bottomWall" height="30.0" stroke="TRANSPARENT" strokeType="INSIDE" width="200.0" BorderPane.alignment="CENTER" />
+                                    </bottom>
+                                    <center>
+                                        <Polygon fx:id="playerSprite" fill="DODGERBLUE" scaleX="0.2" scaleY="0.3" smooth="false" stroke="BLACK" strokeType="INSIDE" strokeWidth="3.0" BorderPane.alignment="CENTER">
+                                            <points>
+                                                <Double fx:value="-50.0" />
+                                                <Double fx:value="40.0" />
+                                                <Double fx:value="50.0" />
+                                                <Double fx:value="40.0" />
+                                                <Double fx:value="0.0" />
+                                                <Double fx:value="-60.0" />
+                                            </points>
+                                            <effect>
+                                                <DropShadow />
+                                            </effect>
+                                        </Polygon>
+                                    </center>
+                                </BorderPane>
+                            </children>
+                        </StackPane>
+                        <Pane layoutX="30.0" layoutY="30.0" prefHeight="150.0" prefWidth="200.0">
+                            <children>
+                                <VBox prefHeight="150.0" prefWidth="200.0" spacing="5.0">
+                                    <children>
+                                        <HBox prefHeight="50.0" prefWidth="200.0">
+                                            <children>
+                                                <Circle fill="DODGERBLUE" radius="25.0" stroke="BLACK" strokeType="INSIDE">
+                                                    <effect>
+                                                        <DropShadow />
+                                                    </effect></Circle>
+                                                <Label fx:id="pNameLabel" alignment="CENTER" prefHeight="50.0" prefWidth="140.0" text="PlayerName">
+                                                    <font>
+                                                        <Font size="18.0" />
+                                                    </font>
+                                                </Label>
+                                            </children>
+                                        </HBox>
+                                        <GridPane gridLinesVisible="true" prefHeight="75.0" VBox.vgrow="NEVER">
+                                            <columnConstraints>
+                                                <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                                <RowConstraints minHeight="10.0" prefHeight="15.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="15.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="15.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="15.0" vgrow="SOMETIMES" />
+                                            </rowConstraints>
+                                            <children>
+                                                <Label text="Strength" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                                                    <padding>
+                                                        <Insets left="3.0" />
+                                                    </padding>
+                                                </Label>
+                                                <Label text="Dexterity" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                                                    <padding>
+                                                        <Insets left="3.0" />
+                                                    </padding>
+                                                </Label>
+                                                <Label text="Intelligence" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+                                                    <GridPane.margin>
+                                                        <Insets left="3.0" />
+                                                    </GridPane.margin>
+                                                </Label>
+                                                <Label fx:id="pDexLabel" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                                    <GridPane.margin>
+                                                        <Insets left="3.0" />
+                                                    </GridPane.margin>
+                                                </Label>
+                                                <Label fx:id="pIntLabel" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                                    <GridPane.margin>
+                                                        <Insets left="3.0" />
+                                                    </GridPane.margin>
+                                                </Label>
+                                                <Label fx:id="pStrLabel" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                    <GridPane.margin>
+                                                        <Insets left="3.0" />
+                                                    </GridPane.margin>
+                                                </Label>
+                                                <Label text="Health" GridPane.valignment="CENTER">
+                                                    <padding>
+                                                        <Insets left="3.0" />
+                                                    </padding>
+                                                </Label>
+                                                <Label fx:id="pHealthLabel" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="100.0" GridPane.columnIndex="1">
+                                                    <opaqueInsets>
+                                                        <Insets />
+                                                    </opaqueInsets>
+                                                    <GridPane.margin>
+                                                        <Insets left="3.0" />
+                                                    </GridPane.margin>
+                                                </Label>
+                                            </children>
+                                            <VBox.margin>
+                                                <Insets top="5.0" />
+                                            </VBox.margin>
+                                            <effect>
+                                                <ColorAdjust />
+                                            </effect>
+                                        </GridPane>
+                                    </children>
+                                </VBox>
+                            </children>
+                        </Pane>
+                        <Pane layoutX="370.0" layoutY="30.0" prefHeight="150.0" prefWidth="200.0">
+                            <children>
+                                <VBox fx:id="mBox" prefHeight="150.0" prefWidth="200.0" spacing="5.0">
+                                    <children>
+                                        <HBox prefHeight="50.0" prefWidth="200.0">
+                                            <children>
+                                                <Label fx:id="mMonsterName" alignment="CENTER" prefHeight="50.0" prefWidth="140.0" text="MonsterName">
+                                                    <font>
+                                                        <Font size="18.0" />
+                                                    </font>
+                                                </Label>
+                                                <Circle fill="#ff1f1f" radius="25.0" stroke="BLACK" strokeType="INSIDE">
+                                                    <effect>
+                                                        <DropShadow />
+                                                    </effect></Circle>
+                                            </children>
+                                        </HBox>
+                                        <GridPane gridLinesVisible="true" prefHeight="75.0" VBox.vgrow="NEVER">
+                                            <columnConstraints>
+                                                <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                            </rowConstraints>
+                                            <children>
+                                                <Label fx:id="mDexLabel" alignment="CENTER_RIGHT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="100.0" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                                                    <GridPane.margin>
+                                                        <Insets right="3.0" />
+                                                    </GridPane.margin>
+                                                </Label>
+                                                <Label fx:id="mIntLabel" alignment="CENTER_RIGHT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="100.0" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+                                                    <GridPane.margin>
+                                                        <Insets right="3.0" />
+                                                    </GridPane.margin>
+                                                </Label>
+                                                <Label alignment="CENTER_RIGHT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="100.0" text="Dexterity" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                                    <GridPane.margin>
+                                                        <Insets right="3.0" />
+                                                    </GridPane.margin>
+                                                </Label>
+                                                <Label alignment="CENTER_RIGHT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="100.0" text="Intelligence" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                                    <GridPane.margin>
+                                                        <Insets right="3.0" />
+                                                    </GridPane.margin>
+                                                </Label>
+                                                <Label fx:id="mStrLabel" alignment="CENTER_RIGHT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="17.0" prefWidth="190.0" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                                                    <GridPane.margin>
+                                                        <Insets right="3.0" />
+                                                    </GridPane.margin>
+                                                </Label>
+                                                <Label alignment="CENTER_RIGHT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Strength" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                    <opaqueInsets>
+                                                        <Insets />
+                                                    </opaqueInsets>
+                                                    <GridPane.margin>
+                                                        <Insets right="3.0" />
+                                                    </GridPane.margin>
+                                                </Label>
+                                                <Label alignment="CENTER_RIGHT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Health" GridPane.columnIndex="1">
+                                                    <opaqueInsets>
+                                                        <Insets />
+                                                    </opaqueInsets>
+                                                    <GridPane.margin>
+                                                        <Insets right="3.0" />
+                                                    </GridPane.margin>
+                                                </Label>
+                                                <Label fx:id="mHealthLabel" alignment="CENTER_RIGHT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="17.0" prefWidth="190.0" GridPane.valignment="CENTER">
+                                                    <GridPane.margin>
+                                                        <Insets right="3.0" />
+                                                    </GridPane.margin>
+                                                </Label>
+                                            </children>
+                                            <VBox.margin>
+                                                <Insets top="5.0" />
+                                            </VBox.margin>
+                                            <effect>
+                                                <ColorAdjust />
+                                            </effect>
+                                        </GridPane>
+                                    </children>
+                                </VBox>
+                            </children>
+                        </Pane>
+                        <TextArea fx:id="promptArea" editable="false" layoutX="30.0" layoutY="175.0" prefHeight="125.0" prefWidth="300.0" wrapText="true">
+                            <font>
+                                <Font size="11.0" />
+                            </font>
+                        </TextArea>
+                        <Circle fx:id="enemySprite" fill="#ff1f1f" layoutX="470.0" layoutY="230.0" radius="15.0" stroke="BLACK" strokeType="INSIDE">
+                            <effect>
+                                <DropShadow />
+                            </effect></Circle>
+                        <VBox alignment="TOP_RIGHT" layoutX="370.0" layoutY="378.0" prefHeight="50.0" prefWidth="100.0">
+                            <children>
+                                <Label text="Total Gold:">
+                                    <font>
+                                        <Font size="14.0" />
+                                    </font>
+                                </Label>
+                                <Label text="Rooms Cleared:">
+                                    <font>
+                                        <Font size="14.0" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="17.0" layoutY="28.0" text="Steps taken:">
+                                    <font>
+                                        <Font size="14.0" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="37.0" layoutY="46.0" text="Monsters Killed:">
+                                    <font>
+                                        <Font size="14.0" />
+                                    </font>
+                                </Label>
+                            </children>
+                        </VBox>
+                        <VBox alignment="TOP_CENTER" layoutX="470.0" layoutY="378.0" prefHeight="50.0" prefWidth="100.0">
+                            <children>
+                                <Label fx:id="totalGold">
+                                    <font>
+                                        <Font size="14.0" />
+                                    </font>
+                                </Label>
+                                <Label fx:id="roomsCleared">
+                                    <font>
+                                        <Font size="14.0" />
+                                    </font>
+                                </Label>
+                                <Label fx:id="totalSteps" layoutX="44.0" layoutY="28.0">
+                                    <font>
+                                        <Font size="14.0" />
+                                    </font>
+                                </Label>
+                                <Label fx:id="totalMonstersKilled" layoutX="60.0" layoutY="46.0">
+                                    <font>
+                                        <Font size="14.0" />
+                                    </font>
+                                </Label>
+                            </children>
+                        </VBox>
+                        <HBox alignment="CENTER_LEFT" layoutX="120.0" layoutY="307.0" prefHeight="30.0" prefWidth="100.0">
+                            <children>
+                                <Button fx:id="rollButton" contentDisplay="CENTER" mnemonicParsing="false" onAction="#abilityBar" prefHeight="30.0" prefWidth="70.0" text="Roll">
+                                    <cursor>
+                                        <Cursor fx:constant="HAND" />
+                                    </cursor></Button>
+                                <Label fx:id="rollValLabel" alignment="CENTER" prefHeight="60.0" prefWidth="30.0" style="-fx-background-color: #cccccc #cccccc;" />
+                            </children>
+                        </HBox>
+                        <HBox fx:id="pDamageValBox" alignment="CENTER_LEFT" layoutX="120.0" layoutY="337.0" prefHeight="30.0" prefWidth="100.0">
+                            <children>
+                                <Label alignment="CENTER" prefHeight="30.0" prefWidth="70.0" text="Damage:" />
+                                <Label fx:id="damageValLabel" alignment="CENTER" prefHeight="60.0" prefWidth="30.0" style="-fx-background-color: #cccccc #cccccc;" />
+                            </children>
+                        </HBox>
+                        <GridPane fx:id="monRollValGrid" layoutX="230.0" layoutY="307.0">
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="30.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="75.0" />
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            </rowConstraints>
+                            <children>
+                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="75.0" text=":Mon Roll" GridPane.columnIndex="1" />
+                                <Label fx:id="monRollValLabel" alignment="CENTER" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: #cccccc #cccccc;" />
+                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="75.0" text=":Damage" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                <Label fx:id="monDamageValLabel" alignment="CENTER" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: #cccccc #cccccc;" GridPane.rowIndex="1" />
+                            </children>
+                        </GridPane>
+                        <Button fx:id="resetButton" layoutX="30.0" layoutY="414.0" mnemonicParsing="false" onAction="#resetGameButton" prefHeight="30.0" prefWidth="60.0" style="-fx-background-color: #ff7a7a#ff7a7a;" text="Reset">
+                            <cursor>
+                                <Cursor fx:constant="HAND" />
+                            </cursor>
+                            <effect>
+                                <InnerShadow />
+                            </effect>
+                        </Button>
+                    </children>
+                    <cursor>
+                        <Cursor fx:constant="OPEN_HAND" />
+                    </cursor>
+                </Pane>
+            </center>
+        </BorderPane>
+    </children>
+</AnchorPane>
